@@ -1,10 +1,9 @@
 CXX=g++
-CFLAGS=-pedantic -std=c++1z -W -Wall -Wcast-qual -Wconversion -Werror -Wextra -Wwrite-strings -Wno-unused-function
+CFLAGS=-pedantic -std=c++1z -W -Wall -Wcast-qual -Wconversion -Wno-deprecated -Werror -Wextra -Wwrite-strings -Wno-unused-function
 #OFLAGS=-O3 -ggdb3
 OFLAGS=-O3
-LFLAGS=-lcrypto
-IFLAGS=-Iinclude
-
+LFLAGS=-lcrypto -L/opt/homebrew/opt/openssl/lib/
+IFLAGS=-Iinclude -I/opt/homebrew/opt/openssl/include/
 SOURCES=$(shell find src -name '*.c' -o -name '*.cpp')
 OBJECTS=$(addsuffix .o, $(basename $(SOURCES)))
 DEPENDENCIES=$(OBJECTS:.o=.d)
